@@ -1,7 +1,4 @@
-﻿using JwtAuth.Abtraction.IServices;
-using JwtAuth.Abtraction.Models;
-
-namespace JwtAuth.Api.Controllers
+﻿namespace JwtAuth.Api.Controllers
 {
     [Route("api/user")]
     [ApiController]

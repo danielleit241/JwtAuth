@@ -1,5 +1,9 @@
 ﻿global using System.Text;
+global using JwtAuth.Abtraction.IServices;
+global using JwtAuth.Abtraction.Models;
 global using JwtAuth.Api.Bootstraping;
+global using JwtAuth.Infrastructure.Data;
+global using JwtAuth.Infrastructure.Services.Authentication;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.AspNetCore.Mvc;
