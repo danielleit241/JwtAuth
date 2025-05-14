@@ -1,4 +1,4 @@
-﻿namespace JwtAuth.Api.Models
+﻿namespace JwtAuth.Abtraction.Models
 {
     public class TokenResponseDto
     {

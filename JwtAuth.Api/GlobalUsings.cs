@@ -1,15 +1,7 @@
-﻿global using System.IdentityModel.Tokens.Jwt;
-global using System.Security.Claims;
-global using System.Security.Cryptography;
-global using System.Text;
+﻿global using System.Text;
 global using JwtAuth.Api.Bootstraping;
-global using JwtAuth.Api.Data;
-global using JwtAuth.Api.Entities;
-global using JwtAuth.Api.Models;
-global using JwtAuth.Api.Services.Authentication;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.AspNetCore.Authorization;
-global using Microsoft.AspNetCore.Identity;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.IdentityModel.Tokens;
-global using Microsoft.AspNetCore.Authentication.JwtBearer;

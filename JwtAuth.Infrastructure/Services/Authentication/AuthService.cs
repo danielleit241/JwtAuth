@@ -1,4 +1,17 @@
-﻿namespace JwtAuth.Api.Services.Authentication
+﻿using JwtAuth.Abtraction.Entities;
+using JwtAuth.Abtraction.IServices;
+using JwtAuth.Abtraction.Models;
+using JwtAuth.Infrastructure.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace JwtAuth.Infrastructure.Services.Authentication
 {
     public class AuthService(AppDbContext context, IConfiguration configuration) : IAuthService
     {
@@ -57,7 +70,7 @@
         private async Task<User> ValidateRefeshTokenAsync(Guid userId, string refreshToken)
         {
             var user = await context.Users.FindAsync(userId);
-            if (user is null || user.RefeshToken != refreshToken || user.RefeshTokenExpiryTime <= DateTime.UtcNow)
+            if (user is null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
             {
                 return null;
             }
@@ -76,8 +89,8 @@
         private async Task<string> GenerateAndSaveRefreshTokenAsync(User user)
         {
             var refreshToken = GenerateRefrestToken();
-            user.RefeshToken = refreshToken;
-            user.RefeshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
             await context.SaveChangesAsync();
             return refreshToken;
         }
@@ -90,14 +103,14 @@
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Role, user.Role)
             };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>("Jwt:Key")!));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!));
 
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature); //521 bits
 
             var tokenDescriptor = new JwtSecurityToken
             (
-                issuer: configuration.GetValue<string>("Jwt:Issuer"),
-                audience: configuration.GetValue<string>("Jwt:Audience"),
+                issuer: configuration["Jwt:Issuer"],
+                audience: configuration["Jwt:Audience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: credentials

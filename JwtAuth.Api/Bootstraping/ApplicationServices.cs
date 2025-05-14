@@ -1,4 +1,8 @@
-﻿namespace JwtAuth.Api.Bootstraping
+﻿using JwtAuth.Abtraction.IServices;
+using JwtAuth.Infrastructure.Data;
+using JwtAuth.Infrastructure.Services.Authentication;
+
+namespace JwtAuth.Api.Bootstraping
 {
     public static class ApplicationServices
     {

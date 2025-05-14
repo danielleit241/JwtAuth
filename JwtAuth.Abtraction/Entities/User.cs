@@ -1,4 +1,4 @@
-﻿namespace JwtAuth.Api.Entities
+﻿namespace JwtAuth.Abtraction.Entities
 {
     public class User
     {
@@ -6,7 +6,7 @@
         public string UserName { get; set; } = default!;
         public string PasswordHash { get; set; } = default!;
         public string Role { get; set; } = string.Empty;
-        public string? RefeshToken { get; set; }
-        public DateTime? RefeshTokenExpiryTime { get; set; }
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpiryTime { get; set; }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace JwtAuth.Api.Services.Authentication
+﻿using JwtAuth.Abtraction.Entities;
+using JwtAuth.Abtraction.Models;
+
+namespace JwtAuth.Abtraction.IServices
 {
     public interface IAuthService
     {
