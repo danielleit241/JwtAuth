@@ -28,6 +28,8 @@ namespace JwtAuth.Infrastructure.Services.Authentication
                 return null;
             }
 
+
+
             return await CreateTokenResponse(user);
         }
 
