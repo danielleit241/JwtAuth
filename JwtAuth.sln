@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuth.Abtraction", "JwtAu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuth.Infrastructure", "JwtAuth.Infrastructure\JwtAuth.Infrastructure.csproj", "{4A94C63B-1C09-4039-B73D-AD32F366F014}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuth.UnitTest", "JwtAuth.UnitTest\JwtAuth.UnitTest.csproj", "{4645DF95-4EF3-4904-A736-92D3F887677D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4A94C63B-1C09-4039-B73D-AD32F366F014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A94C63B-1C09-4039-B73D-AD32F366F014}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A94C63B-1C09-4039-B73D-AD32F366F014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4645DF95-4EF3-4904-A736-92D3F887677D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4645DF95-4EF3-4904-A736-92D3F887677D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4645DF95-4EF3-4904-A736-92D3F887677D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4645DF95-4EF3-4904-A736-92D3F887677D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

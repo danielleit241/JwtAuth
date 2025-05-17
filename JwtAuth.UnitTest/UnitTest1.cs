@@ -1,9 +1,9 @@
-namespace JwtApi.UnitTest
+namespace JwtAuth.UnitTest
 {
     public class UnitTest1
     {
         [Fact]
-        public void Register_UnitTest()
+        public void Test1()
         {
 
         }
