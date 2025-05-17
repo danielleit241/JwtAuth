@@ -8,5 +8,6 @@ namespace JwtAuth.Abtraction.IServices
         Task<User?> RegisterAsync(UserDto request);
         Task<TokenResponseDto> LoginAsync(UserDto request);
         Task<TokenResponseDto> RefreshTokenAsync(RefreshTokenRequestDto request);
+        Task<User?> ChangePasswordAsync(ChangePasswordDto request);
     }
 }

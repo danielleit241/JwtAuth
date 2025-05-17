@@ -25,6 +25,15 @@
             return Ok(result);
         }
 
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto request)
+        {
+            var result = await authService.ChangePasswordAsync(request);
+            if (result is null)
+                return BadRequest("Invalid username or password");
+            return Ok(result);
+        }
+
         [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshToken(RefreshTokenRequestDto request)
         {
