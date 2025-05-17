@@ -120,23 +120,25 @@ namespace JwtAuth.Infrastructure.Services.Authentication
             return tokenHandler.WriteToken(tokenDescriptor);
         }
 
-        public async Task ChangePasswordAsync(ChangePasswordDto request)
+        public async Task<User?> ChangePasswordAsync(ChangePasswordDto request)
         {
             var user = await context.Users.FirstOrDefaultAsync(x => x.UserName == request.UserName);
             if (user == null)
             {
-                return;
+                return null;
             }
 
             if (new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHash, request.OldPassword) == PasswordVerificationResult.Failed)
             {
-                return;
+                return null;
             }
 
             var hashedPassword = new PasswordHasher<User>().HashPassword(user, request.NewPassword);
             user.PasswordHash = hashedPassword;
             context.Users.Update(user);
             await context.SaveChangesAsync();
+
+            return user;
         }
     }
 }
