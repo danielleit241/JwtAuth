@@ -15,7 +15,7 @@ namespace JwtAuth.Api
             builder.Services.AddApplicationServices(builder.Configuration);
 
             var app = builder.Build();
-
+            app.UseCors("AllowReactApp");
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

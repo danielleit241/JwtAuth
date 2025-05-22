@@ -30,6 +30,16 @@
 
             services.AddScoped<IAuthService, AuthService>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000")
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
+
             return services;
         }
     }
