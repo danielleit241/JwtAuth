@@ -24,8 +24,7 @@
             });
 
             //services.AddScoped            -> 3 loại scoped chính: request, session, application
-            //services.AddTransient         -> request
-
+            //services.AddTransient         -> requests
             //services.AddSingleton         -> chỉ tạo 1 lần duy nhất tồn trong suốt application
 
             services.AddScoped<IAuthService, AuthService>();
