@@ -92,5 +92,3 @@ Contributions, issues, and feature requests are welcome. Feel free to check [iss
 - GitHub: [danielleit241](https://github.com/danielleit241)
 
 ---
-
-> This project is for educational purposes, illustrating modern JWT authentication flows in ASP.NET 8.
